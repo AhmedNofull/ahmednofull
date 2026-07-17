@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Nofull — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,::before,::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2230;--blue:#4361ee;--blue-lt:#5b78ff;--text:#e6edf3;--muted:#8b949e;--border:#30363d;--radius:14px;}
+html.light{--bg:#f4f6fb;--bg2:#ffffff;--bg3:#eef0f7;--text:#0d1117;--muted:#556070;--border:#d4d9e8;}
+html.light nav{background:rgba(244,246,251,.95)!important;border-bottom-color:#d4d9e8}
+html.light #mob-nav{background:#fff}
+html.light .bg-alt{background:#eef0f8}
+html.light .card{background:#fff;border-color:#dde2ec}
+html.light .bg-alt .card{background:#f7f9ff}
+html.light .nav-logo{color:#0d1117}
+html.light .nav-links a{color:var(--muted)}
+html.light .nav-links a:hover,html.light .nav-links a.active{color:var(--blue);background:rgba(67,97,238,.08)}
+html.light .sec-title,html.light .exp-title,html.light .edu-info h3,html.light .cert-title,html.light .hero-name,html.light .skill-name{color:#0d1117}
+html.light .exp-bullets li,html.light .edu-bullets li{color:#334155}
+html.light .skill-bar-bg{background:rgba(0,0,0,.09)}
+html.light .exp-tag{background:rgba(67,97,238,.1);color:var(--blue)}
+html.light .form-input{background:rgba(0,0,0,.03);border-color:#d0d7e2;color:#0d1117}
+html.light .avatar-inner{background:#e0e5f5;color:#0d1117}
+html.light .cert-img-wrap{background:#e8ecf5}
+html.light footer{background:#eef0f8;border-top-color:#d4d9e8}
+html.light .form-title{color:#0d1117}
+html{scroll-behavior:smooth;font-family:'Inter',sans-serif;color:var(--text);background:var(--bg)}
+body{overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,17,23,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 28px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.3px;text-decoration:none}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.78rem;font-weight:500;padding:6px 11px;border-radius:8px;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.07)}
+.nav-scroll{background:transparent;border:1.5px solid var(--border);color:var(--muted);font-size:.78rem;font-weight:600;padding:5px 14px;border-radius:8px;cursor:pointer;transition:all .2s;margin-left:8px}
+.nav-scroll:hover{border-color:var(--blue);color:var(--blue)}
+#theme-toggle{width:36px;height:36px;border-radius:9px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:8px;transition:all .2s;flex-shrink:0}
+#theme-toggle:hover{border-color:var(--blue);color:var(--blue)}
+.hamburger{display:none;background:none;border:none;color:var(--muted);cursor:pointer;padding:6px}
+#mob-nav{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 20px 16px;flex-direction:column;gap:4px}
+#mob-nav.open{display:flex}
+#mob-nav a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;padding:10px 14px;border-radius:8px;transition:all .2s}
+#mob-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+section{padding:90px 0}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.sec-center{text-align:center;margin-bottom:56px}
+.sec-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.sec-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:12px}
+.sec-sub{font-size:.95rem;color:var(--muted);max-width:560px;margin:0 auto}
+.bg-alt{background:var(--bg2)}
+.jump-btn{display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:#fff;border:none;border-radius:50px;padding:12px 26px;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .22s;box-shadow:0 4px 18px rgba(67,97,238,.35)}
+.jump-btn:hover{background:var(--blue-lt);box-shadow:0 6px 26px rgba(67,97,238,.5);transform:translateY(-2px)}
+.jump-btn.ghost{background:transparent;color:var(--muted);border:1.5px solid var(--border);box-shadow:none}
+.jump-btn.ghost:hover{border-color:var(--blue);color:var(--blue);background:rgba(67,97,238,.08)}
+.jump-btn svg{width:15px;height:15px;flex-shrink:0}
+.jump-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:52px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;transition:border-color .25s,box-shadow .25s}
+.card:hover{border-color:rgba(67,97,238,.45);box-shadow:0 0 0 1px rgba(67,97,238,.15),0 8px 32px rgba(0,0,0,.3)}
+.bg-alt .card{background:var(--bg)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.show{opacity:1;transform:none}
+#home{min-height:100vh;display:flex;align-items:center;background:var(--bg);padding-top:60px}
+.hero-wrap{text-align:center;width:100%}
+.avatar-ring{display:inline-block;padding:4px;background:linear-gradient(135deg,var(--blue),#a259ff);border-radius:50%;margin-bottom:30px}
+.avatar-inner{width:120px;height:120px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:900;color:#fff;border:3px solid var(--bg)}
+.hero-name{font-size:clamp(2.6rem,6vw,4.5rem);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:10px}
+.hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin-bottom:24px}
+.hero-meta span{display:flex;align-items:center;gap:7px;font-size:.85rem;color:var(--muted)}
+.hero-meta svg{width:14px;height:14px;opacity:.7}
+.socials{display:flex;justify-content:center;gap:12px;margin-bottom:30px}
+.socials a{width:40px;height:40px;border-radius:10px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s;text-decoration:none}
+.socials a:hover{border-color:var(--blue);color:var(--blue);background:rgba(67,97,238,.1)}
+.socials svg{width:18px;height:18px}
+.hero-bio{max-width:580px;margin:0 auto 36px;font-size:.98rem;color:var(--muted);line-height:1.8}
+.hero-jumps{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.exp-card{display:flex;gap:18px;align-items:flex-start}
+.company-logo{width:54px;height:54px;border-radius:12px;background:rgba(67,97,238,.15);border:1px solid rgba(67,97,238,.25);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:var(--blue);flex-shrink:0;letter-spacing:-.3px}
+.exp-body{flex:1}
+.exp-title{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:3px}
+.exp-company{font-size:.85rem;font-weight:600;color:var(--blue);margin-bottom:6px}
+.exp-meta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px}
+.exp-meta span{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--muted)}
+.exp-meta svg{width:13px;height:13px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.exp-bullets li{font-size:.875rem;color:#c9d1d9;line-height:1.6;padding-left:16px;position:relative}
+.exp-bullets li::before{content:"•";position:absolute;left:0;color:var(--blue)}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px}
+.exp-tag{font-size:.72rem;font-weight:500;padding:3px 10px;border-radius:6px;background:rgba(67,97,238,.12);color:#7c9cf5;border:1px solid rgba(67,97,238,.2)}
+.edu-timeline{display:grid;grid-template-columns:1fr 2px 1fr;gap:0 0;position:relative;align-items:start}
+.edu-line{background:var(--blue);opacity:.3;border-radius:2px;justify-self:center;width:2px;min-height:100%}
+.edu-left{padding-right:40px;display:flex;flex-direction:column;gap:28px}
+.edu-right{padding-left:40px;display:flex;flex-direction:column;gap:28px;margin-top:120px}
+.edu-card-inner{display:flex;gap:14px;align-items:flex-start}
+.edu-logo{width:52px;height:52px;border-radius:12px;background:rgba(67,97,238,.15);border:1px solid rgba(67,97,238,.25);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.edu-info h3{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:3px}
+.edu-info .edu-school{font-size:.82rem;font-weight:600;color:var(--blue);margin-bottom:6px}
+.edu-info .edu-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.edu-info .edu-meta span{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+.edu-info .edu-meta svg{width:12px;height:12px}
+.edu-bullets{list-style:none;display:flex;flex-direction:column;gap:5px}
+.edu-bullets li{font-size:.82rem;color:#c9d1d9;padding-left:14px;position:relative}
+.edu-bullets li::before{content:"•";position:absolute;left:0;color:var(--blue);font-size:.9rem}
+.skill-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:36px}
+.skill-tab{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:.82rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--muted);transition:all .2s}
+.skill-tab:hover{border-color:var(--blue);color:var(--blue)}
+.skill-tab.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 4px 14px rgba(67,97,238,.4)}
+.skill-tab svg{width:15px;height:15px}
+.skill-panel{display:none}
+.skill-panel.active{display:block}
+.skill-panel-title{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:22px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.skill-card-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.skill-name-row{display:flex;align-items:center;gap:10px}
+.skill-icon{width:36px;height:36px;border-radius:9px;background:rgba(67,97,238,.15);border:1px solid rgba(67,97,238,.22);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.skill-name{font-size:.9rem;font-weight:700;color:#fff}
+.skill-pct{font-size:.82rem;font-weight:700;color:var(--blue)}
+.skill-bar-bg{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.skill-bar{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--blue-lt));transition:width 1s ease}
+.skill-desc{font-size:.78rem;color:var(--muted);line-height:1.55}
+.cert-banner{background:linear-gradient(135deg,rgba(67,97,238,.15),rgba(162,89,255,.1));border:1px solid rgba(67,97,238,.25);border-radius:var(--radius);padding:28px 32px;display:flex;align-items:center;gap:28px;margin-bottom:44px}
+.cert-circle{width:90px;height:90px;border-radius:50%;border:3px solid var(--blue);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;background:rgba(67,97,238,.1)}
+.cert-circle .num{font-size:1.8rem;font-weight:900;color:#fff;line-height:1}
+.cert-circle .lbl{font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cert-banner-text h3{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:8px}
+.cert-banner-text p{font-size:.88rem;color:var(--muted);line-height:1.65}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.cert-img-wrap{border-radius:10px;overflow:hidden;margin-bottom:16px;border:1px solid var(--border);background:var(--bg3);min-height:110px;display:flex;align-items:center;justify-content:center}
+.cert-img-wrap img{width:100%;height:auto;display:block}
+.cert-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:110px;gap:8px;color:var(--muted);font-size:.75rem}
+.cert-img-placeholder svg{width:32px;height:32px;opacity:.4}
+.cert-title{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.cert-issuer{font-size:.8rem;font-weight:600;color:var(--blue);margin-bottom:6px}
+.cert-date{display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted);margin-bottom:12px}
+.cert-date svg{width:12px;height:12px}
+.cert-skills-title{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.cert-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.cert-tag{font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:50px;background:rgba(67,97,238,.14);color:#7c9cf5;border:1px solid rgba(67,97,238,.22)}
+.cert-tag.green{background:rgba(16,185,129,.12);color:#34d399;border-color:rgba(16,185,129,.2)}
+.cert-tag.orange{background:rgba(245,158,11,.12);color:#fbbf24;border-color:rgba(245,158,11,.2)}
+.cert-tag.purple{background:rgba(162,89,255,.12);color:#c084fc;border-color:rgba(162,89,255,.25)}
+.cert-tag.teal{background:rgba(20,184,166,.12);color:#2dd4bf;border-color:rgba(20,184,166,.22)}
+.view-cert-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;padding:11px;border-radius:10px;background:var(--blue);color:#fff;font-size:.83rem;font-weight:600;border:none;cursor:pointer;text-decoration:none;transition:all .2s;box-shadow:0 3px 14px rgba(67,97,238,.3)}
+.view-cert-btn:hover{background:var(--blue-lt);box-shadow:0 5px 20px rgba(67,97,238,.45);transform:translateY(-1px)}
+.view-cert-btn svg{width:15px;height:15px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.form-title{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:20px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+.form-group label span{color:#ef4444}
+.form-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.88rem;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:var(--blue);background:rgba(67,97,238,.05)}
+.form-input::placeholder{color:rgba(139,148,158,.5)}
+textarea.form-input{resize:vertical;min-height:120px}
+.send-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:10px;background:var(--blue);color:#fff;font-size:.9rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(67,97,238,.35);font-family:'Inter',sans-serif}
+.send-btn:hover{background:var(--blue-lt);box-shadow:0 6px 22px rgba(67,97,238,.5);transform:translateY(-1px)}
+.send-btn svg{width:16px;height:16px}
+.contact-items{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.contact-item{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;transition:opacity .2s}
+.contact-item:hover{opacity:.8}
+.contact-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:19px;height:19px;color:#fff}
+.contact-item-text small{display:block;font-size:.7rem;color:var(--muted);margin-bottom:1px}
+.contact-item-text span{font-size:.88rem;font-weight:600;color:var(--text)}
+.follow-title{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.follow-links{display:flex;gap:10px}
+.follow-link{width:38px;height:38px;border-radius:9px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all .2s}
+.follow-link:hover{border-color:var(--blue);color:var(--blue);background:rgba(67,97,238,.1)}
+.follow-link svg{width:17px;height:17px}
+footer{border-top:1px solid var(--border);padding:22px 28px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer strong{color:var(--blue)}
+@media(max-width:768px){.nav-links,.nav-scroll{display:none}.hamburger{display:block}.edu-timeline{grid-template-columns:1fr;gap:0}.edu-line{display:none}.edu-left,.edu-right{padding:0;margin-top:0}.contact-grid{grid-template-columns:1fr}.certs-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+<div class="nav-inner">
+<a href="#home" class="nav-logo">Ahmed Nofull</a>
+<div class="nav-links">
+<a href="#home" class="active">Home</a>
+<a href="#experience">Experience</a>
+<a href="#volunteering">Volunteering</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#certs">Certificates</a>
+<a href="#contact">Contact</a>
+</div>
+<button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark">
+<svg id="icon-moon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="icon-sun" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<button class="hamburger" onclick="document.getElementById('mob-nav').classList.toggle('open')"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</div>
+</nav>
+<div id="mob-nav">
+<a href="#home"         onclick="this.parentElement.classList.remove('open')">Home</a>
+<a href="#experience"   onclick="this.parentElement.classList.remove('open')">Experience</a>
+<a href="#volunteering" onclick="this.parentElement.classList.remove('open')">Volunteering</a>
+<a href="#education"    onclick="this.parentElement.classList.remove('open')">Education</a>
+<a href="#skills"       onclick="this.parentElement.classList.remove('open')">Skills</a>
+<a href="#certs"        onclick="this.parentElement.classList.remove('open')">Certificates</a>
+<a href="#contact"      onclick="this.parentElement.classList.remove('open')">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="home" style="padding-top:0">
+<div class="container">
+<div class="hero-wrap reveal">
+<div class="avatar-ring"><div class="avatar-inner" style="padding:0;overflow:hidden"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wgARCAG7AScDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAECAwQFBv/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAvfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjV4nmH1FPlZPsnyXrHrqXAAAAAAAAAAAAAB45fxKQIBMSJiDr975jU+ucXaAAAAAAAAAAACpx/Ob8xEWgiUykiItUWLN/pvlPQPoAAAAAAAAAAAPM9P50446d87856aPMt3wcM90rwW9LSPGj1c64Z6+W5+i6PN9LWQAAAAAAAAAK/LfUfLR39HJ2Z6zKZRMsSCAitoMuHt4dY7/Y8f2N8wAAAAAAAAAKfL/U/KnX24Xx03tz6y3LLVZFVqVFYoZ8ffxXPpen5Xq75gAAAAAAAAInKOPxvSwnTXHq4YvjGlkd2GuddOeuMvHju1mtsNDWNKGvdw7npOfo1gLAAAAAAAGG+Mvn5aM9Zi2kc7eTC02NM9cpcq66HNHVNmOXTgW3yuuvbzdO+QXIAAAAAACth5mfbzY6xelpdKTQXxzO3PGprfLSW5BXHXKzWbdJtJ04gAAAAAAAAOfoR5UzXHWxnLZRpZEy3tlctERDXD0NYjc1zCgAAAAAAAAAOLn6+THS+V5zrj6qNNueS4bztCs1kn0ODt3z2GsgAAAAAAAAAAc/B38GdzOd86tW0rjfRKragrEWad3B3ax0DWAAAAAAAAAACOM04pY6YzNF025Jjqjnqu2VSWtTRb9vHWz13m9++VwAAAAAAAGfjr63meVWa6NOTvmuqYtlWmtTGNBk0gzm8rGi0Qmhw005tz0/R+cnWfrHgesz0hAABUs8/zWva83zKzVqoaRMJPZxaR618tc2UildYM2iKLiJCuemRw89q7lkKvOcnoep87Nn1b5zuZ9ViZ87zMonWVYWZghEgAHf2+J6eXVNbZqJgEEoEwqOPfy6rMNxMCZgWmotag0UVnExAglEgBMEoExI7O7xLR70eX0ZvY57GzDA7OXixq9SwACUKmYEoEoFSABMSAAAAAEgCEiJIAIkACpQAJQIgEwAJAAAAAAAEASQAJiQAKRMEgqBMSIkAAAAAABAAAACYEokEVMABWYkTEgAAAAAAAQAAAAABMFCCQVmBMwJQJAAAAAAIJEEiEwAAABSAIIACpiRMCUCQAAyCzEC0BMETExQSgCAKRMIQNH2Jn459hkfKPscj5N9iPjp+wHx77DM+TfYD499gPj32A+OfYk+On7BZ8jX7BL8hH2Bfj32A+PfYD499gPjn2I+OfYj419kQLOTbTE48++Tmp07HD1wGO1zUAAAAAAAAAAAAADl6hw9wc+txy33HPfUAAAAAAAAAAAAAf/9oADAMBAAIAAwAAACHzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzipprzzzzzzzzzzzzzzh3mnWLzzzzzzzzzzzzwUU4IY0bzzzzzzzzzzyhQ9vB/wAf88888888888nYRKieekU8888888888pqL8HkM+W888888888/VuozbFSq7e888888886A4htmeZEJ8888888888g8NHZau8Dc888888888f6r12IOO/88888888888KThcxvP888888888888UdtWywg88888888888xgojcxkk18888888807DDD7tMzr6V888844vk1PYkQHfrnqRfkQxb8hZx9B+DHPN6tg1FjBxlp91dRxesF0H32NlACk8o95559xQwjzLC9dwMIs9BxBhBd9//AB/680FAAKUQbQVTVf8A/wD/AP7yxCMKKbTTfeVeUz3+/wD/APcsAsgFBBxhBBESy2zy+wY958okNBBVwcRTACCmwVMOGO3v/wD/AK5717718/64/wAowwwI888888888888888MscM8888888888888/9oADAMBAAIAAwAAABDzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyT3DzzzzzzzzzzzzzzpqSRZfbzzzzzzzzzzzj2WJ2a3fTzzzzzzzzzz17KOt+vb7zzzzzzzzzyfBX7sG3P8A8888888888JT0r799cc8888888886dDfkiKxJbe8888888855KswO+EnBV88888888t3+ZWfDmCsd888888888eP31yY1I/88888888888Yir5EhT888888888888dWE+wUl88888888888wbooQQEA9888888888DI9FQrYu2xw18885oai3Yi5k6yF4VWUh+y4mlhJDuzSmd3E89uukw0EYQ0MaQcdE8yeLcMP9JphokEU0QFpCGaDUg/DblU0M8c8gwiWCWqOtTxkoY4Q8ow4yCSi+OqVJ92sQwwBEoEuyiGWG+dtAOP+88M408FmODOPThEMv+ypEAoTxNAf9T/Xs1+f17c8IssM/wDb/DvLHXT/AAggwTzzzzzzzzzzzzzzyzwzyzzzzzzzzzzzzzz/xAAlEQACAgEDAwUBAQAAAAAAAAAAAQIRAxIwMRAgIRMyQVBRIkD/2gAIAQIBAT8A+upfJ4NP5vpF9LLLvwxqt1v4LGyxMs5Vbssh6p6h6nkeVizMx5LJc7b4J+O7DyPbfBNWaGNUUabNLMXJLabpWY5tvySlbpGlpckmN0Y05cElNEZ20SzPV4Iu1ezP2shyMsRITaG2R5Pkxr+dqtMqGWUNdYcmOLk9tpPkyKmR5KGPpgindiio8bmVeThiY2SlYjCqju5PdQ10b6RVsxSuW7kdy8FjRT6WYXUvO3Zlk9IxdqZik9KLXe2X0mriPpfbBVGhCZZV8FMcu7JCvKH1vpjhbvtsvYliT4HjkjQ/w9OT+COH9Kr75f41uUV3LZTpFstlssffRRRpNJpNJpNI0Ias0mk0mk0lFfT/AP/EACoRAAIBAgQFBAMBAQAAAAAAAAABAgMREiExUQQQExQwIDJAQSJQYXEz/9oACAEDAQE/AP11i3w7fASLCRYaLDXkirsjSudAVE6OQqK+yXDlWlbyQ1KWaEi3Nor6D18cCnKx1UKdzEOpY6iK+eY/FCOKSjucTQjD2ojFWuxtX9pGNixVwx1KbhL6KkLRZS4WDj+RVhgm4+Gh/wBI/wClf23IrItYYhowpFRZEVkji5J1Xbwp2d0YupDEiLP6MiPlUeVirVVON2Ntu78UZyjoyk7obEmzA0XGcTNxtYnUlN3k/JQd4oTMFOeUhcPTWd2St9DOId3/AJ5aPsuRkXRkXJSyK8bQ8kYSloijHDGzGiLtqYlysV4YoWJU5R18MKUp6EeHjHXMsskJD52ENElqiVGMtMidGUfQk3kiHDTeuRDh4R/vJ8lysJFubz5zoxkS4aS0HCS+iMIwX4ouX9CE/TJ+ZMxFzEhy+BYzLfMXwXyXwXyXhujFHcxx3FJPNepvwSipVLPY6MNjpQ2OnDYwR2KeTkv76pPM7l7HcvY7l7HcvY7l7HdPY7p7HcflisS4htWSIVpRd3mSm5O5TquFxV7Nu2p3L2O5ex3L2O5ex3L2HXu9P0//xAA5EAABAwEEBwYEBgIDAQAAAAABAAIDEQQSEyEQMUBBUVOSBRQgIjJhIzBCkTNQUnGBoUNyJHCCsf/aAAgBAQABPwL/AKlJAFSaJ1rs7RUzM+6Fvsp/zNWv8gntMVmbWR1PZWjtt16kLQBxKktEkp88jnfuVWqqo7TLE6rHkfsrP2zkBO3/ANBRysmZeY6o223drYZMcGZ3vUkr5XXnuJPuq+EFWe1SQPvMNPZWPtBlpFHeV/Da+1bd/gjOr1FVVfHVRyFjqg0VgtveQWu9bf72ntK2GzRhrPW7+k51anwjwhQTGKQOBVnnbaI7w179nke2Jhe40AVqndaJjI7fooqaAFSngpoC7NtODJTcdez9sTXYmRA+rMqiu5K7mi1NartFdqU6NXEIUY6K7RXVGbrlY5MSziusZbN2hJjW1/AZJkKbZ8s13cI2QUQslE6yZoWZd1c5MsrW+6wgE6ALu4ToMkWUXZMlWObsrzdjceAWbn1OtQ6vBRUVFTwv1KTJdlO+Nd9tlm/Ak/1KGtQFDxV8BUp8qfmV2WPjbLL+C/8A1KCs/qQCAVFRUVFRUVNBUurR2ZS9/GyvF6Nw4hDWrKy60uKM7Qm2liE8f6gg9rtR8FQjI0b0ZmcVjNqnC8E4UK7Kzlf+2yE0BKNrkc4lrqe1E4HvJBGtynqGBjU2H9RRs7HelzkbM4ajVR3mmiikKvJ76BSPkJyKw5XH1f2m2Z3MCMDh9VVC4skodRVqyFV2ZK2NrzrdqohayD5h9kDUV2K0mkDlH6U9lbbGpFNI6uQqnNkLA6/eNc26lYYvMcYZD96lPZ5qCpb7qMU0SpwoeKtDHxwiRr68bqhltEmrMAZ1TJzWlKHggLytYrErLHdibxOZVFZX3mU4bFa/wCm+WMJoPeqk/StawlhjgriuUCYND81cRjKwV3cV1INuqYVhcoXeUcKaLH+I7YrUPgFP1Bf5h/qhoorqdrTBocgqaSpR8N37INoxv7IalZGUBdsT23mEK7uKcy7K07tSCConFNCyCyRzRFEwqmgqb8MogkICpACa260DY7Qyjrw1FO1aAqo5p1dyAdxP8q+7giZBvAQcXBNCroKkzLAP1aIIqec7IRUZp1kjPH76KonQc1TQQmquiqKigxc60omWYA1ca7PK2kjh7oaHStBosZvFYzFfYM7yvt4qoQ071ZhRm0WptJa8dG5PjB1hNZhPJYBmo5xleZ/KxYK+n+lI6Jwddjz3FUdXI0UcZGda6Chm5Q6totf06AdDm0VQslVqawkrUNMeuvBWc1B2i1+luiuktCuJrRoroJVaCisvpO0Wv0hOVUCq6KaKolXlVBWT0naLZ6Wo6Lya7NV0VyRci6ugZlBWTUdmc5rBVzgB7qftOGIeWr3HUAhJLIL0pz4DdocNOMRuXeFj13KpOjWmjRKZBATGaOBqrN2oHM+MKOGshMlZKKscDsU9qhswrI8D23qbtlx/BZdHFydPJM69I4uVlbfeZT+wQ0URCp4QEBpPpKmFyb2cFHM6J1WkqPtSaP1fEb/agt8E+QdddwPzpp44G3pHgK09sPf5YBcHHei4k3nGrkcyqqx/g/yhpIVNOWiiAVNDla9bFVNOiz9ozQZE328CrPbYbRqNHcD8qW2wxfVU+ytHa7zlHRqfI6R15ziT4bE71N/lDTREK6rquq6qaSna1az8WnAeCqBUHaM0WRN4cCoLfFNr8p91WvgfIyMVe4BTdqMb6BX3Kn7Qkl+r+EXudr0V8ML7jw5NNUPllONFI688nj4qoFR2uaPU9Rdq7pAo7VFKMnK0dr62xZe6knkeal2iqr49SsktRc+yHyyrVJQXVrPyKqqDqI/Ma4sKs9obIKH1fLnlETfdPeXur8w/NBIUNtIyfmo5GvHlPjKmtbWZNzKfIXuqT83f89shaag0Udvkbro5N7RZ9TCELdAd5+y73B+tG2wD6j9k/tEfQz7qS0ySep3z9+xVVf8AvDf+S7/yU7NQqh4fNOxVVVVVKqqlVW75h1bTu+YdSwpOW/pWFJy39KwpOW/pWFJy39KwpOW/pWFJy39KwpOW/pWHJy39KwpOW/pWFJy39KwpOW/pWFJy39KwpOW/pWFJy39Kw5OW/pWHJy39Kw5OW/pWHJy39KwpP0P6Vhyct/SsKTlv6Vgyct/2WC/lu+yw5OW/pQikofhv6VhSct/SsKTlv6VhSct/SsOTlv6Vhyct/SsKTlv6VhSct/SsOTlv6VhSct/SsKTlv6VhSct/SnRSct/Tpe9rGlzjRo1krvDatq14DjQEt0Wmbu9nfLSt0Vp4op4572G6t03TtnaDXmGNzWlwZI17mjeE20wyUuvvV3BR2lzprO6++44uDyf6HspZjPYi5169fF9u5gvKSV8s8keLg6sM8Rx9060uxGua99BPddXc33CknkYbaxjnufT4Y/8AOtRPe+ONzLrm0GZOatLnOLbOzJ0ms8Gpn/F7QeHkXJmgggUFRlT/AObYa0yFSrPacWB0rwGBrnA58FZrTiteX0aRnd4N3VTrU24cCkz/ANIKFotGMyN1naL3CStB9k6dgbUG97NzXfGDEDmuDmODacSdS721r3Mex7XNbepStQu9tD3tcx4cyh461FOJJJI7pa6Ola7b3ICFsQkdQOLt2edVZYJW220SPkfQuGsDzZI5CqsrXEOmlFJJN36RuCdFVpDDhk72hdyBiuGR3qvNOWR4ru5vGQyHEu3Q6mpMszmNcBO/zb6BQQYNRiFwPED8/wD/xAArEAACAgECBQMEAwEBAAAAAAAAAREhMRBBQFFhcfEwgZEgUKHwscHR4XD/2gAIAQEAAT8h/wDJYUk5tlOb3j+FfzoTSSmmun2CK/l3Pshhu7Ox8YBPJigSCfULks7/AOIoLP3XG0HTWwuxIet2kYnWXorbPNKn3KlddT7cWu8tVz5D0k9IZBGiCs00ymjHtV9HEuLjG+TmMdjbbcjNxJmSzIz0Nh2JDUMxprAst6HJ8PCactnRWJclyGOC6nMJWIbHIY2FPsRZQS5H5j2NcHs4d+QEPRY/JbB0hZtCTYUQtoRdRKxsTDkmxDJwq2KKZZ7blzTe4bqpj7DnjcRCB0h+JKvcZjY6bqMCUiYTMqIlJDE0jNVkTMs8j5K4WMdxibLpZy2RYSEJSW0xeSBA55kDRVy6Fdj064bcKsq/SBaHyGOi0knRPQvVcEisz9ofC1f+kDiNwSINBfUGw1q3l3uLJzXC+uIhIhuYF8h9mTcOBwMYMrRNDLPoclJIfkW+LM9sPua/vwinuEpKUZg2oJ4Vi2PSkichMfAL56LoNefDGUpJD8RfqBWy+43hKKT2F0wVLTJCeWEQhKY/AQpHKfBewxVB87FQVtLEWeQpkNlsu4v74G8BDqpLbsf4IUSdlLRMgSpC5IGVJ88Ic7S8MLkUDWEagbn6thlBwWPIryqkGZl9/BrvLQwkiGGrDSKRzkGuEb4uNtC+BimWSUuOSFezIUEd6DsOCB3ZJI24KboMzdhRKt3/AJMjYkxQNrR20vZZEECnyYW4qoPEiRN+C63o3IohrJP9fBQQQjUI33kTZbMsipoTJsoS1erIw+dEudLktOSlu3BujuZ3FlHyZI9jKyHVQ0djNTe42ZFp8SRSn5GJmA2NYj5aMl7lLJsuEQxJKexMNR5JUMCECkT0EkChuCoilokYY+PjgQuxxXD9yGiMTsWpDGsSErmCZhBcwdPDFMDGp4k/QCSbihlPQxfMET3EGuNYDvwxkpXtSJM1yvbJenbqYQwtCKOuXELXuJ0JTGNOwt4xHBRIoElAN0MztixIuI/IY6YtG1jjpGYtsYGG9CguXb4lflmQoPQhOqIGhAMKFsvfEnA6sshihrEsaoQKWOCesPTw3XOTQcm2UyxuTm6xdI8ElrIyWuot2ILZjZ6Yee4E4FIo0aLSJDI/+gEERj04KQo2yb2J5J2LH8E751M/YfZMNGLNEDS5DZDepKhD0F0qAiLmuTHqr1aT3I2QdP1oenrlk31Ty/wcW3ZbcjNEiGPu0IjRY7jSexCECm4IBBjbD/Eyw1Cd1TIr9CZEiXz36Stz01yTSnnljw0t3Zc6PbSF+yGsRGpYuduhFL6BLoCJF1DURn6VyV7dPD5EiSmn2+iNl6sQv8Z/A3abNcmDOIK7j1ZRlDeWZ7GQsPQtYII0jR6EWeEdeU6ySJiHsmZmuo+vdQThQ6UfyP8A4Nb0veZZM277kUq1PVG5MpEzHa0E/onWdGxhcd289ibNJJ0kkkQRY0ptPoNbJJ1n6cmRJaeBKZH8hMTH9TZklj7EPDOWxUjA9U9JJJJGt+o7Gspi1VOZKks2I0gjSmaJtv8AGh2lNi9KSR5d/VZgkwboUUDqNfgrNge4UePwzHM7CJHvOcpOSpEt+s8vVnSCCWtSTP0vPpvL9eSSiEQuCeXwEei/UeX9leX9leWL7Ju+/wBg21em7v8AY3nR5d/sUm48GT+lPgeg9I01n09zAeX6/SET2JdCXTRMS5nWJc2Z9/qjy+/rbjy/RWfq1v8AYPLDyA8oPKDyA8gPMDyg8gPIDyA8gPIBTf2DzA8wPODyw84LP7B5CL/uzzA/sAPIDyA8gPMDzA8gPIDzg8gPKDyAg/3NUN1J2BHAYZYl47e+iX/PiJFMKVD+lQ8HGRf6+MUiWSWl3C35+xElPsJfuthf8DCsORYbA3R3omoRRG7j/Rh3g4icwJtO6UP8sAlcowRyeRMoo45jKHSSXCzO91QOVsVzFl++Pcmhm6pJ8Pw4x0eLkNwJzyhFZqZ9izP8hu+BtWOMhGkubcS3shC9WXSMuP1YzUbSyrcE5kginsCgfXLJlFQQGg5JWTQsEiNQwi1KhrjUiO600m1q2bG6alQkqXpt0Gkg3HIbluT/AFN31bFckBJJx+kkRGtzsv3kTHPVUrM0jmqy3POYt9xizImEL50r9/v/AP/EACsQAQACAgEDAwUAAgMBAQAAAAEAESExQRBRYXGBkUChscHwINEw4fFQcP/aAAgBAQABPxD/APJWwLsQHuxmCC8BfBbAVsqBOXuQ4sFirE/+BlHvN+clEZ0Db5q6PvLcw22J8agfT5hF7+f9wuBbt1HvgxSz2X/Sc87DXhOH6xaLdQhe+Frz2r51GGJ11RavzNF7ylouu0ssb194FTeYuxy94xcEsVZwITC6lU+oefH1bxZMlrDRfz7eY9pWhzF9qa+JZdlv4lXNF8bhWuRjdxmaw7mQRz3h3KUKpNME0CKwHcD4v6keNrSp7p3dHv2jshJW23K/eIqjEypPSLQMpuBTOEYRBu+INdKhKsfHaGyjGHhqJt7RoC2xyJ+oF9AHjPx2+nEsoj+3EpV8Weh6QWJnD23BA9VeZc2zAsrYyl6SLQZnJ5DuZLduZbDv4hQvEyYHrFS/Bh3XQV79+pcGyz6ZkxYDnQfCvtFd7CRoqs3eOI6KNB941KnrETexiMlmahC43rmXcYV2hoDxiyEBZZCMtx16RqrPBABm3WOGCCB1s1iKHbe91p9yvpjpuJe+h+9y7MaUXGplqkl2AW37ShcLz+Jm1RozZEVmCs0DCsxghUGziHuxwPYlNQripiwX3I1r1GaM12li4Avn5hUeSi+NV+PpVq1m34Fl4NkbVcxmAyGbgVqAIBy4jVubDFA5V0GmoKQ23uV3iaALqKqi2XmbfOWu1fSsVtL7pQxzK63bcYwV4gO0wcMp5gLzccsDL90Xsm9ykqQ3UImCHOIobUWMbar6V2SgJZ6pqWsGB5mhA294kEg/4A0hbIQh61FhQZil0faG0BZyLjmLXONZTP0u6+N8iQEOC0j3lKKJs8RCBpupkV9mahmqu7AlE7jCxhuIcwF3BYUms3vDNCdqlS0p0ox0CcSzAlid8AseFt9IrNKXoQsQYKE++4m7zRXgeJoIKx2Ii647pgSAplzI35MO4aBs4QT2YPJXm4UaYtRXHh6E1MGo7bIkMVKqrv5lsENjtMF5o3oeKgDAmr8xRtOAY2q/EELpzlcBSFY9z6JHDVg+8Uo0U+8Ltjat0sS2CxuUdmwZ7kEcAtA9mKa75uY0Ey4KAYdUUe7AqvT52O0mJq5hyUIDsJD9xi3NQAKng4ur/USzQRVrxSGLK+8tcNyl+g8QC6Ez6S5DljAMQP1ErGuI67OD0fonj7oQVmqrmO+aC+Lal8JcViV6Ti+FLFL6EFY68EEuEGjjRAJElrWqH2WekUgY1gPiNDFG7YNIqXAZLys0M9zogBRu9xDdr/X0SV+Bfx+404wplNMBsc0H9wLesThLviEcBGIDb2IxlJVSKVnF2QFlQq0lwAalizMV/wCEQC1SHgjumyIGy6Py/r6Lv+4evEGl9bSfaXfcC7KWQbZgpvMEC534gt0LbWEQC4tBr3i21H0SfeCgRo2RKIqhdwsJ3tCDMP8ABEEXk93tOIDT5efozVDEjj/tCQTAn97wtcwMxgq44pEybbdoBsva+GLK7x/G3rd94HEXkFEZWVOCWGJrcwtNs9DP6ghQxAAcs168/SBkFSixlr2pdo48y21lJGKZkTFC0y6IUVzBFdsNVmpWAYhyuyZ3WohLXO5WyN8i2JgZkwe7v9Pgyqo+YnXtGwhjKHWfJibcPLmB6VLMXzMAsjRN2jsy1Zp2ZbAr6yxF6jqyIdMHDtr6izphD1MMqrOKiUeIzpPJLWgYFkUubxIacYDtLhsv/RjzR8AKvGSo+vFcPmECK7gpVlixgJW4PS59Qy9a4e0bMocuI4Fysi9vSJKNPePMkEA2xy6ENRnVFRcrxdb9RntqP5+oBY9j7R2nmXO5xcG6DFS7D8Q5A9KjdpxHHFekzEpS3cqa9qhfXIn2I7fyfUYv5/iVymy0w1ytQoG7gK5PRqVqkhXgKhCltqGdlyy6dQVzEuLNruK/WPqF65PsQW+mJbXJEWXBBMmzsmoGgGchVd4iPZguA9riVXZFrIekxHggoKJu+qfplwPsg+8q90wY9Z49o7LaHR9nfysu4QcChD8wfYU7cxQFgiL8hENgjV1O3MI0feFKlVL1B+Y6t1oWnJ73LmcEGzVvDO6hSmbyyepx9FfWix+AMwjQDKfNMHvcZnmQeDwGj2iBbUTw5f1OKV/5LhpxHhspnHMWcXKGR8QNAekFXVEVpT5gXjfaY87deJfmU99X5l/vJDV6Zy8VQs5MTLD84j0c+pC/U1l8On/mTcJiv0DbFnUxjS8cfcxmn3bL8rLYIFtd4gUSiRss+Y81Bcw2ATM1vt3iC4wMumh7xDRix1cS4KMRti6m8Z9CGUv3mBKynM9QEnA8wMG3G/EHJeCYDnF90eNiWxfbAnw6f+FQLcEGCD/2OpwTO/7JuZMqoNlAHmNGsvdnI3uDRuAg5aD7MzZVI3KqIcMy0mICIOPMKtX6MPBOV7exMNGDmGGCJRNIrEGk6j3YOL4ioDtAu8xu6uzmMWOTSNQ2k8GWjxtBjzcy9P8AapVGPKv/AA9jb1+hzCS4awPbZ+09EPX4GPlY3fyo1byu7KNAS7YrEhoYBnfDutwgJYWPcjvoSyJxEOz3gYEY0WfieWu0sOhYZctQKviM3tKdjiBQDyxczSHSqShEtdyUgd0LJ6MOgp6T8n+p60gu/wATEDLNF/X3S1AspL7upW9r7u44AQSqsvOYrYMYuLjivDBGIB5Rbk7e34joITBykfMcOGC4jLxiaZglz05QMA4DdeOz36BdvgxGjC0uFoYQQxDmeSeUNKmGAYy/mOUYu4NRjbDDLuG5gZjhTsjBhVlcMFqRkdeiVlMsIY9FqXDB0FUsXqLPVjYkWs0OY4BdzKCxcyiD1NIRZ6zFisuCRYd5vqNPiOTG5irmE0CNiMAGnAdkHHe15IMMVDCYRlAqBysGA04g2TuIA3KzfPUM9bgxdQVzSP5EviPS4TiE4gxg4gj4YMUnvKdYVFOVUFKR6H5IOCndg/UGz61/UXZL1u/EGyflz8w6SvifY/3E2z+xUUXAqsSuWLk6XBxcIQMziMvMuOvUfzFucdScQl5nMXpxCEtoxPTc7jEsbmuY4+Yv3lohcDviYDEG4ouLB6EIuKi9oOZc++YTmJ0LnEGPWunMuCPSVSUp5J5sxDvMEsOIZbZvE1OZfQMQjqDFly46i+Z67nMuXB6GLl2QrokOnhLrcG56PS2G+hFXTXTiEczmMYbixnvs3CESodAnE4jCe0voXLm5UrpXQGXiMOlwlxZeejBzMxfM/mG4agzENTUuczn/AAqPiJCcdMTEH/IIQ1GL1Yuai0RX6z+eglVKxDfTncqaYwJUNyzpWenn/Iz0voS5zGcTibI7jqb9ZDHW8QMzTKh0rpXWv8KuHTU4nE46ViVDoTS6amKRcRa9VCGoYiTj/J1NdTrcuMxz01NdGaly/HQjqEWaI4IdTy/MIRcQcS+nHS+t0y7e/Qm5mLUuDLsh9uuYx63iBLlxyqORFUfdP5gwaly8SzpcJz0Y+sDp6dL4/cx3lncnELdC+0u03tPOguFRydPFTiMHosvo+UUffMJcvreCXL6X11OfeKCj3IV0fCUP+kq/6RV3Z8RJVlekO4lHP5iv+6ZVVUhcdTpxLqLmLd9Fbj+6Yes/P+HM4l1L5lzc1CXNsNTzFs79bzNdOLh0+LTOJvpzGLcvpjpfMdD1lid6/wA1P6X9T+5/Uwf0/E/jf1D+Z/E/mf1O3/T4n8b+oU/0/E/mf1D+Z/E/kf1P5n9Q5/p9o3ve/nE/vf1Hj/p8Tu/2+IVIv/PaC/zfiCP9/wAS8Xj7/wCuHnv54nJyj+aj/M/iNv8AT8TD/T8R/ufxL/6ftH+Z/E/mf1Lv7ftP5n9R/jfxD+d/Eoq2/wA462ftBQIlDIhaUHF2UMDfRjt0Gx6C+LUjTWBku6f8b+wrahBxeygiYRx9ZlnXGaHIGqcwNVQiA80XTzVRgcIUC+jySlN4zuB0rodY6aBd27wKlt+zRQDVJwFQrWclygQNwgCiQsbWOI8QrNFCSqyNeSttS+DwgmjRW/ffaLXErI2KkzYORyeI2wMwTwLaW4zm3b6xs4hRPvT+IgYQaw5YGMnUa/TeVsWXQ2OLlTJJTRgGi1WuIpfSsmw0YLDeUQ9iRQtAYNFpa4NsEU1iCilIrZiyuaMytZ3Qso3tooJhLOMxAyZ9qpU8jd1RnWYrhBYLMIRxs2Yxk+tvpu+pwUJYDwXdSnwQUlbRSymms3BWAFoWtdjliRRBvO/dBfwAlF5U1M5qxPtEjcTX8CCy73RSDqjaFgS1C1vR2hbrmlG5e6gVtRrRA5kig5JBTi1Lj/7/AP/+AAMA/9k=" alt="Ahmed Nofull" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div></div>
+<h1 class="hero-name">Ahmed Nofull</h1>
+<div class="hero-meta">
+<span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Cairo, Egypt</span>
+<span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>ahmednofull@gmail.com</span>
+</div>
+<div class="socials">
+<a href="https://linkedin.com/in/ahmed-nofull" target="_blank" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+<a href="mailto:ahmednofull@gmail.com" aria-label="Email"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+</div>
+<p class="hero-bio">Motivated and hardworking, with a strong desire to gain practical experience and grow through every challenge. Committed to learning, contributing, and building toward long-term goals.</p>
+<div class="hero-jumps">
+<a href="#experience"   class="jump-btn">Jump to Experience <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+<a href="#volunteering" class="jump-btn ghost">Volunteering</a>
+<a href="#education"    class="jump-btn ghost">Education</a>
+<a href="#skills"       class="jump-btn ghost">Skills</a>
+<a href="#certs"        class="jump-btn ghost">Certificates</a>
+<a href="#contact"      class="jump-btn ghost">Contact</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="bg-alt">
+<div class="container">
+<div class="sec-center reveal">
+<p class="sec-label">Work</p>
+<h2 class="sec-title">Work Experience</h2>
+<p class="sec-sub">My professional journey in business development and AI</p>
+</div>
+
+<!-- Sprints -->
+<div class="card reveal" style="margin-bottom:20px">
+<div class="exp-card">
+<div class="company-logo" style="font-size:1.1rem;background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.25);color:#4ade80">SP</div>
+<div class="exp-body">
+<h3 class="exp-title">Business Developer Intern</h3>
+<p class="exp-company">Sprints</p>
+<div class="exp-meta"><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2026 · 4 weeks</span><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Egypt</span></div>
+<ul class="exp-bullets">
+<li>Researched and built target account lists aligned with a defined Ideal Customer Profile (ICP) for a SaaS product.</li>
+<li>Executed multi-channel outbound sequences across email and LinkedIn to generate and qualify pipeline.</li>
+<li>Supported technical discovery calls and product demos, bridging commercial and product knowledge.</li>
+<li>Maintained CRM hygiene and pipeline reporting; documented objections and competitive intelligence.</li>
+</ul>
+<div class="exp-tags"><span class="exp-tag">B2B Sales</span><span class="exp-tag">Business Development</span><span class="exp-tag">CRM</span><span class="exp-tag">Pipeline Management</span><span class="exp-tag">SaaS</span></div>
+</div>
+</div>
+</div>
+
+<!-- ALX Africa -->
+<div class="card reveal">
+<div class="exp-card">
+<div class="company-logo" style="font-size:.75rem;background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.25);color:#34d399">ALX</div>
+<div class="exp-body">
+<h3 class="exp-title">AI Career Essentials</h3>
+<p class="exp-company">ALX Africa</p>
+<div class="exp-meta">
+<span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Sep 2024 – Nov 2024 · 3 mos</span>
+<span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>Internship</span>
+<span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>Remote</span>
+</div>
+<ul class="exp-bullets">
+<li>Completed an intensive 8-week AI Career Essentials program covering generative AI, prompt engineering, and responsible AI practices.</li>
+<li>Applied AI tools to real-world business scenarios, data analysis workflows, and productivity automation.</li>
+<li>Earned a Certificate of Achievement recognizing completion of career and portfolio skills alongside AI & generative AI competencies.</li>
+</ul>
+<div class="exp-tags">
+<span class="exp-tag" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.25)">Generative AI</span>
+<span class="exp-tag" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.25)">Prompt Engineering</span>
+<span class="exp-tag" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.25)">Career &amp; Portfolio Skills</span>
+<span class="exp-tag" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.25)">Data Analysis</span>
+<span class="exp-tag" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.25)">Responsible AI</span>
+</div>
+<div style="margin-top:14px">
+<a href="https://intranet.alxswe.com/certificates/CJxzsNPyBc" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:#34d399;text-decoration:none;border:1px solid rgba(52,211,153,.3);padding:5px 12px;border-radius:7px;transition:all .2s" onmouseover="this.style.background='rgba(52,211,153,.1)'" onmouseout="this.style.background='transparent'">
+<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+View Certificate of Achievement
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jump-row reveal">
+<a href="#volunteering" class="jump-btn">Jump to Volunteering <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+<a href="#home" class="jump-btn ghost">↑ Top</a>
+</div>
+</div>
+</section>
+
+<!-- VOLUNTEERING -->
+<section id="volunteering">
+<div class="container">
+<div class="sec-center reveal">
+<p class="sec-label">Community</p>
+<h2 class="sec-title">Volunteering</h2>
+<p class="sec-sub">Giving back and making an impact beyond the workplace</p>
+</div>
+<div class="card reveal">
+<div class="exp-card">
+<div class="company-logo" style="background:rgba(162,89,255,.15);border-color:rgba(162,89,255,.3);color:#a259ff;font-size:.85rem">101</div>
+<div class="exp-body">
+<h3 class="exp-title">Leadership Team &amp; Organizer</h3>
+<p class="exp-company"><a href="https://www.101-online.org" target="_blank" style="color:#a259ff;text-decoration:none">101 Organization</a></p>
+<div class="exp-meta"><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022 – Present</span><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Cairo, Egypt</span><span>Disaster &amp; Humanitarian Relief</span></div>
+<ul class="exp-bullets">
+<li>Led and coordinated volunteer teams across humanitarian relief operations over 4+ years.</li>
+<li>Organized large-scale community initiatives, managing logistics, communications, and stakeholder engagement.</li>
+<li>Awarded <strong>Certificate of Excellence in Citizenship</strong> — Lycée Français du Caire, June 9, 2022, signed by Proviseur M. Frédéric Brom.</li>
+</ul>
+<div class="exp-tags">
+<span class="exp-tag" style="background:rgba(162,89,255,.12);color:#c084fc;border-color:rgba(162,89,255,.25)">Team Leadership</span>
+<span class="exp-tag" style="background:rgba(162,89,255,.12);color:#c084fc;border-color:rgba(162,89,255,.25)">Humanitarian Relief</span>
+<span class="exp-tag" style="background:rgba(162,89,255,.12);color:#c084fc;border-color:rgba(162,89,255,.25)">Community Organizing</span>
+<span class="exp-tag" style="background:rgba(162,89,255,.12);color:#c084fc;border-color:rgba(162,89,255,.25)">Stakeholder Engagement</span>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal" style="margin-top:20px;background:linear-gradient(135deg,rgba(162,89,255,.1),rgba(67,97,238,.1));border:1px solid rgba(162,89,255,.25);border-radius:var(--radius);padding:22px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+<div style="font-size:2rem;flex-shrink:0">🏅</div>
+<div style="flex:1;min-width:200px">
+<p style="font-size:.88rem;font-weight:700;margin-bottom:3px">Certificate of Excellence in Citizenship</p>
+<p style="font-size:.8rem;color:var(--muted);margin-bottom:14px">Awarded by Lycée Français du Caire · June 9, 2022 · In recognition of sustained community impact and humanitarian service with 101 Organization</p>
+<a href="https://drive.google.com/file/d/1tp52zYKvtrnOrtRk_q2ujYcU2uls57uS/view?usp=sharing" target="_blank" class="view-cert-btn" style="background:rgba(162,89,255,.8);box-shadow:0 3px 14px rgba(162,89,255,.3);max-width:220px">
+<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate
+</a>
+</div>
+</div>
+<div class="jump-row reveal">
+<a href="#education" class="jump-btn">Jump to Education <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+<a href="#home" class="jump-btn ghost">↑ Top</a>
+</div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="bg-alt">
+<div class="container">
+<div class="sec-center reveal">
+<p class="sec-label">Academic</p>
+<h2 class="sec-title">Education</h2>
+<p class="sec-sub">My educational background and academic achievements</p>
+</div>
+<div class="edu-timeline">
+<div class="edu-left">
+<div class="card reveal">
+<div class="edu-card-inner">
+<div class="edu-logo">🎓</div>
+<div class="edu-info">
+<h3>Bachelor of Engineering — Computer Software</h3>
+<p class="edu-school">Ain Shams University</p>
+<div class="edu-meta"><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Expected 2027</span><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Cairo, Egypt</span></div>
+<ul class="edu-bullets"><li>Major: Computer Engineering &amp; Software Systems</li><li>Focus: AI, Data Science &amp; Software Development</li></ul>
+</div>
+</div>
+</div>
+<div class="card reveal">
+<div class="edu-card-inner">
+<div class="edu-logo">🌍</div>
+<div class="edu-info">
+<h3>French Secondary Education</h3>
+<p class="edu-school">Lycée Ferney-Voltaire &amp; Lycée Français de Tokyo</p>
+<div class="edu-meta"><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>France &amp; Japan</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="edu-line"></div>
+<div class="edu-right">
+<div class="card reveal">
+<div class="edu-card-inner">
+<div class="edu-logo">📜</div>
+<div class="edu-info">
+<h3>French Baccalaureate Diploma</h3>
+<p class="edu-school">Lycée Français du Caire (LFC)</p>
+<div class="edu-meta"><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Graduated 2022</span><span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Cairo, Egypt</span></div>
+<ul class="edu-bullets"><li>Académie de Grenoble · Centre d'examen du Caire</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jump-row reveal">
+<a href="#skills" class="jump-btn">Jump to Skills <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+<a href="#home" class="jump-btn ghost">↑ Top</a>
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="container">
+<div class="sec-center reveal"><p class="sec-label">Toolbox</p><h2 class="sec-title">Skills &amp; Technologies</h2></div>
+<div class="skill-tabs reveal">
+<button class="skill-tab active" onclick="switchTab('business',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Business</button>
+<button class="skill-tab" onclick="switchTab('ai',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg> AI &amp; Tech</button>
+<button class="skill-tab" onclick="switchTab('communication',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> Communication</button>
+<button class="skill-tab" onclick="switchTab('languages',this)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg> Languages</button>
+</div>
+<div id="panel-business" class="skill-panel active">
+<p class="skill-panel-title">Business</p>
+<div class="skills-grid">
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">💼</div><span class="skill-name">B2B Sales</span></div><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="85%"></div></div><p class="skill-desc">Multi-channel outbound, pipeline qualification, and prospect nurturing for SaaS products.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">📈</div><span class="skill-name">Business Development</span></div><span class="skill-pct">82%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="82%"></div></div><p class="skill-desc">ICP research, account mapping, and growth strategy for early-stage and scaling businesses.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">🗂️</div><span class="skill-name">CRM &amp; Pipeline</span></div><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="80%"></div></div><p class="skill-desc">CRM hygiene, pipeline reporting, and deal tracking across B2B sales cycles.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">📋</div><span class="skill-name">Project Management</span></div><span class="skill-pct">78%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="78%"></div></div><p class="skill-desc">Coordinating cross-functional teams, managing timelines, and delivering community initiatives.</p></div>
+</div>
+</div>
+<div id="panel-ai" class="skill-panel">
+<p class="skill-panel-title">AI &amp; Technology</p>
+<div class="skills-grid">
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">🤖</div><span class="skill-name">AI for Business</span></div><span class="skill-pct">88%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="88%"></div></div><p class="skill-desc">Applying AI tools to automate business workflows, analyze data, and improve decision-making.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">✨</div><span class="skill-name">Generative AI</span></div><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="85%"></div></div><p class="skill-desc">Using LLMs and generative AI tools for content, automation, and productivity.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">💡</div><span class="skill-name">Prompt Engineering</span></div><span class="skill-pct">82%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="82%"></div></div><p class="skill-desc">Designing effective prompts for AI models to produce accurate, relevant outputs.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">📊</div><span class="skill-name">Data Analysis</span></div><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="75%"></div></div><p class="skill-desc">Interpreting data to extract business insights and support evidence-based decisions.</p></div>
+</div>
+</div>
+<div id="panel-communication" class="skill-panel">
+<p class="skill-panel-title">Communication</p>
+<div class="skills-grid">
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">🗣️</div><span class="skill-name">Strategic Communications</span></div><span class="skill-pct">87%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="87%"></div></div><p class="skill-desc">Crafting clear, persuasive messaging for stakeholders, clients, and public audiences.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">📝</div><span class="skill-name">Research Report Writing</span></div><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="80%"></div></div><p class="skill-desc">Structuring and writing professional research reports for business and academic audiences.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">💬</div><span class="skill-name">Professional Communication</span></div><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="90%"></div></div><p class="skill-desc">Clear written and verbal communication in professional and cross-cultural environments.</p></div>
+</div>
+</div>
+<div id="panel-languages" class="skill-panel">
+<p class="skill-panel-title">Languages</p>
+<div class="skills-grid">
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">🇫🇷</div><span class="skill-name">French</span></div><span class="skill-pct">100%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="100%"></div></div><p class="skill-desc">Native speaker. Baccalauréat Français. Educated in France, Japan, and Egypt in French.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">🇪🇬</div><span class="skill-name">Arabic</span></div><span class="skill-pct">100%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="100%"></div></div><p class="skill-desc">Native speaker. Egyptian Arabic and Modern Standard Arabic.</p></div>
+<div class="card reveal"><div class="skill-card-inner"><div class="skill-name-row"><div class="skill-icon">🇬🇧</div><span class="skill-name">English</span></div><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar" style="width:0" data-w="80%"></div></div><p class="skill-desc">Fluent. Professional and academic use across business development and AI coursework.</p></div>
+</div>
+</div>
+<div class="jump-row reveal">
+<a href="#certs" class="jump-btn">Jump to Certificates <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+<a href="#home" class="jump-btn ghost">↑ Top</a>
+</div>
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certs" class="bg-alt">
+<div class="container">
+<div class="sec-center reveal"><p class="sec-label">Credentials</p><h2 class="sec-title">Certificates &amp; Courses</h2></div>
+<div class="cert-banner reveal">
+<div class="cert-circle"><span class="num">11</span><span class="lbl">Certificates</span></div>
+<div class="cert-banner-text">
+<h3>Continuous Learning</h3>
+<p>11 certifications from Google, Anthropic × PayPal, ALX Africa, HP LIFE, and Udemy — covering AI, business development, critical thinking, career skills, and professional growth. Committed to staying at the cutting edge of technology.</p>
+</div>
+</div>
+<div class="certs-grid">
+
+<!-- Google AI Professional Certificate -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Google AI Professional Certificate</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 4, 2026 · 4.5 hours</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag">AI for Business</span><span class="cert-tag">Generative AI</span><span class="cert-tag">Strategic Comms</span><span class="cert-tag">Report Writing</span></div>
+<a href="https://ude.my/UC-e75beac7-037a-401a-93a2-7c1006e4f3df" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- Google AI Essentials -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Google AI Essentials</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 4, 2026 · 3 hours</div>
+<div class="cert-tags"></div>
+<a href="https://ude.my/UC-ac716840-92e6-4421-8e42-a919c2eaa4ab" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- Accelerate Your Job Search -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Accelerate Your Job Search with AI</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 4, 2026 · 2 hours</div>
+<div class="cert-tags"></div>
+<a href="https://ude.my/UC-29066354-7d08-4b1c-b746-c9d1948dd064" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- AI in Project Management -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">AI in Project Management</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 5, 2026 · 36 mins</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag">Project Management</span></div>
+<a href="https://ude.my/UC-c084f317-63c0-41ac-96f9-59cbcdb9194f" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- Uncover Transferable Skills -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Uncover Your Transferable Skills with AI</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 4, 2026 · 26 mins</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag">Career Skills</span><span class="cert-tag">AI Tools</span><span class="cert-tag">Self-Assessment</span></div>
+<a href="https://ude.my/UC-95aa6452-1f0e-4a97-b66d-ba679b798f17" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- Plan Your Job Search -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Plan Your Job Search with AI</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 4, 2026 · 34 mins</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag">Job Search</span><span class="cert-tag">AI Strategy</span><span class="cert-tag">Career Planning</span></div>
+<a href="https://ude.my/UC-f5bf1098-5a4f-40fe-8bcc-7422a78a9e81" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- Prepare & Practice for Interviews -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Prepare &amp; Practice for Interviews with AI</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 4, 2026 · 44 mins</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag">Interview Prep</span><span class="cert-tag">AI Coaching</span><span class="cert-tag">Career Skills</span></div>
+<a href="https://ude.my/UC-38220e1f-9c89-4b36-b523-c997d60afdc2" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- Manage Your Job Applications -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Manage Your Job Applications with AI</h3>
+<p class="cert-issuer" style="color:var(--blue)">Google / Udemy</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>June 4, 2026 · 19 mins</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag">Job Applications</span><span class="cert-tag">AI Productivity</span><span class="cert-tag">Career Tools</span></div>
+<a href="https://ude.my/UC-9454a7cf-4f1d-4112-9d7a-6f6852db76dd" target="_blank" class="view-cert-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- AI Fluency for Small Businesses -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">AI Fluency for Small Businesses</h3>
+<p class="cert-issuer" style="color:#f59e0b">Anthropic × PayPal</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>May 31, 2026</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag orange">AI for Business</span></div>
+<a href="https://verify.skilljar.com/c/23tbfcmsmdtj" target="_blank" class="view-cert-btn" style="background:rgba(245,158,11,.8);box-shadow:0 3px 14px rgba(245,158,11,.3)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- ALX Africa AI Career Essentials -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">AI Career Essentials (8 weeks)</h3>
+<p class="cert-issuer" style="color:#34d399">ALX Africa</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>December 3, 2024</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag green">Data Analysis</span><span class="cert-tag green">Prompt Engineering</span><span class="cert-tag green">Generative AI</span><span class="cert-tag green">Responsible AI</span></div>
+<a href="https://intranet.alxswe.com/certificates/CJxzsNPyBc" target="_blank" class="view-cert-btn" style="background:rgba(52,211,153,.85)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+<!-- HP LIFE Critical Thinking -->
+<div class="card reveal">
+<div class="cert-img-wrap"><div class="cert-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Certificate of Completion</div></div>
+<h3 class="cert-title">Critical Thinking in the Age of Artificial Intelligence</h3>
+<p class="cert-issuer" style="color:#2dd4bf">HP LIFE</p>
+<div class="cert-date"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2026</div>
+<p class="cert-skills-title">Skills Acquired</p>
+<div class="cert-tags"><span class="cert-tag teal">Critical Thinking</span><span class="cert-tag teal">AI Literacy</span><span class="cert-tag teal">Digital Skills</span></div>
+<a href="https://www.life-global.org/certificate/dfe3df1d-04fd-45e1-9569-b154bce604b9" target="_blank" class="view-cert-btn" style="background:rgba(20,184,166,.8);box-shadow:0 3px 14px rgba(20,184,166,.3)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg> View Certificate</a>
+</div>
+
+</div>
+<div class="jump-row reveal">
+<a href="#contact" class="jump-btn">Jump to Contact <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+<a href="#home" class="jump-btn ghost">↑ Top</a>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<div class="sec-center reveal">
+<p class="sec-label">Get in Touch</p>
+<h2 class="sec-title">Get In Touch</h2>
+<p class="sec-sub">I'm always open to discussing new opportunities, collaborating on projects, or just having a chat about AI and business.</p>
+</div>
+<div class="contact-grid reveal">
+<div>
+<h3 style="font-size:1.25rem;font-weight:700;margin-bottom:12px">Let's Connect</h3>
+<p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:28px">Whether you have an opportunity in mind, want to collaborate on a project, or just want to connect — I'd love to hear from you!</p>
+<div class="contact-items">
+<a href="mailto:ahmednofull@gmail.com" class="contact-item">
+<div class="contact-icon" style="background:linear-gradient(135deg,#4361ee,#5b78ff)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+<div class="contact-item-text"><small>Email</small><span>ahmednofull@gmail.com</span></div>
+</a>
+<div class="contact-item">
+<div class="contact-icon" style="background:linear-gradient(135deg,#10b981,#059669)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+<div class="contact-item-text"><small>Location</small><span>Cairo, Egypt</span></div>
+</div>
+</div>
+<p class="follow-title">Follow Me</p>
+<div class="follow-links">
+<a href="https://linkedin.com/in/ahmed-nofull" target="_blank" class="follow-link" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+<a href="mailto:ahmednofull@gmail.com" class="follow-link" aria-label="Email"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+</div>
+</div>
+<div>
+<p class="form-title">Send Message</p>
+<form onsubmit="handleForm(event)">
+<div class="form-group"><label>Full Name <span>*</span></label><input type="text" class="form-input" placeholder="Your full name" required></div>
+<div class="form-group"><label>Email Address <span>*</span></label><input type="email" class="form-input" placeholder="your.email@example.com" required></div>
+<div class="form-group"><label>Subject <span>*</span></label><input type="text" class="form-input" placeholder="What's this about?" required></div>
+<div class="form-group"><label>Message <span>*</span></label><textarea class="form-input" placeholder="Tell me about your project or inquiry..." required></textarea></div>
+<button type="submit" class="send-btn"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>Send Message</button>
+</form>
+</div>
+</div>
+<div class="jump-row reveal" style="justify-content:center;margin-top:48px">
+<a href="#home" class="jump-btn">↑ Back to Top</a>
+</div>
+</div>
+</section>
+
+<footer><p>© 2026 <strong>Ahmed Nofull</strong> · Built with ❤️ in Cairo, Egypt</p></footer>
+<script>
+const secs = ['home','experience','volunteering','education','skills','certs','contact'];
+const navMap = {};
+document.querySelectorAll('.nav-links a').forEach(a => { navMap[a.getAttribute('href').slice(1)] = a; });
+secs.forEach(id => {
+const el = document.getElementById(id);
+if(!el) return;
+new IntersectionObserver(entries => {
+entries.forEach(e => {
+if(e.isIntersecting){ Object.values(navMap).forEach(a=>a.classList.remove('active')); if(navMap[e.target.id]) navMap[e.target.id].classList.add('active'); }
+});
+},{rootMargin:'-35% 0px -60% 0px'}).observe(el);
+});
+const ro = new IntersectionObserver(entries => {
+entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); ro.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+const barObs = new IntersectionObserver(entries => {
+entries.forEach(e => { if(e.isIntersecting){ e.target.querySelectorAll('.skill-bar').forEach(b => { b.style.width = b.dataset.w; }); barObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.skill-panel').forEach(p => barObs.observe(p));
+function switchTab(id, btn) {
+document.querySelectorAll('.skill-tab').forEach(t => t.classList.remove('active'));
+document.querySelectorAll('.skill-panel').forEach(p => p.classList.remove('active'));
+btn.classList.add('active');
+const panel = document.getElementById('panel-' + id);
+if(panel){ panel.classList.add('active'); panel.querySelectorAll('.skill-bar').forEach(b => { b.style.width = '0'; setTimeout(() => { b.style.width = b.dataset.w; }, 50); }); }
+}
+function handleForm(e) {
+e.preventDefault();
+const btn = e.target.querySelector('.send-btn');
+btn.textContent = '✓ Message Sent!';
+btn.style.background = '#10b981';
+setTimeout(() => { btn.innerHTML = '<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg> Send Message'; btn.style.background = ''; e.target.reset(); }, 3000);
+}
+function toggleTheme() {
+const isLight = document.documentElement.classList.toggle('light');
+document.getElementById('icon-moon').style.display = isLight ? 'none' : 'block';
+document.getElementById('icon-sun').style.display  = isLight ? 'block' : 'none';
+localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+(function(){
+if(localStorage.getItem('theme') === 'light') {
+document.documentElement.classList.add('light');
+document.getElementById('icon-moon').style.display = 'none';
+document.getElementById('icon-sun').style.display  = 'block';
+}
+})();
+</script>
+</body>
+</html>
